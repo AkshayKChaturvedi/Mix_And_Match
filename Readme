@@ -1,0 +1,13 @@
+Problem Statement: Model the android dialler keyboard in software(no GUI required) to capture interaction with the keyboard 
+and output best matches and possible suggestions.
+
+To generate possible suggestions, create dictionary which consists of all possible 3 letter words that can be created from 
+the 26 characters such that the resultant 3 letters have at-least one vowel and has no duplicate characters.
+
+The program should accept any 3 digits(duplicates allowed) string and generate a best match and possible combinations. The 
+best match is the string with the max number of vowels followed by an ascending order in case of equality.
+
+This folder contains 2 files:
+
+1. Mix_And_Match.py - It contains all the necessary function to achieve the tasks as mentioned in problem statement.
+2. Mix_And_Match_tests.py - It contains tests to validate the functioning of the code.
