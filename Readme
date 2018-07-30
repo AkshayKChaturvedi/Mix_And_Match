@@ -10,4 +10,5 @@ best match is the string with the max number of vowels followed by an ascending 
 This folder contains 2 files:
 
 1. Mix_And_Match.py - It contains all the necessary functions to achieve the goals as mentioned in problem statement.
-2. Mix_And_Match_tests.py - It contains tests to validate the functioning of the code.
+2. Mix_And_Match_tests.py - It contains tests to validate the functioning of the code. (pytest framework has been 
+   used to write the test cases)
