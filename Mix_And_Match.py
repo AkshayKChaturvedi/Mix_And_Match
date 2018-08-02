@@ -2,6 +2,7 @@ from itertools import product
 from collections import Counter
 
 keypad_dict = {'2': 'ABC', '3': 'DEF', '4': 'GHI', '5': 'JKL', '6': 'MNO', '7': 'PQRS', '8': 'TUV', '9': 'WXYZ'}
+matches_dict_all_strings = None
 
 
 # All matches of a string
@@ -35,13 +36,18 @@ def matches_dict(input_string):
     if not set(input_string).issubset(digit_list):
         return 'Error : Please enter digits between 2 and 9 (both 2 and 9 included in the range)'
 
-    digit_list_prod = list(product(digit_list, digit_list, digit_list))
+    global matches_dict_all_strings
 
-    string_list_prod = [''.join(d) for d in digit_list_prod]
+    # Dictionary will be created only the first time function is called, after that, matches will be accessed using the
+    # input string as dictionary key
+    if not matches_dict_all_strings:
+        digit_list_prod = list(product(digit_list, digit_list, digit_list))
 
-    # Generating dictionary of all possible 3 letter words that can be created from the 26 characters such that
-    # the resultant 3 letters have at-least one vowel and has no duplicate characters
-    matches_dict_all_strings = {s: generate_matches(s, keypad_dict) for s in string_list_prod}
+        string_list_prod = [''.join(d) for d in digit_list_prod]
+
+        # Generating dictionary of all possible 3 letter words that can be created from the 26 characters such that
+        # the resultant 3 letters have at-least one vowel and has no duplicate characters
+        matches_dict_all_strings = {s: generate_matches(s, keypad_dict) for s in string_list_prod}
 
     return matches_dict_all_strings[input_string]
 
